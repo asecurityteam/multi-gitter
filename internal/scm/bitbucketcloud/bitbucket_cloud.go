@@ -26,7 +26,8 @@ type BitbucketCloud struct {
 	bbClient     *bitbucket.Client
 }
 
-func New(username string, token string, repositories []string, workspaces []string, users []string, sshAuth bool, transportMiddleware func(http.RoundTripper) http.RoundTripper) (*BitbucketCloud, error) {
+func New(username string, token string, repositories []string, workspaces []string, users []string, sshAuth bool,
+	transportMiddleware func(http.RoundTripper) http.RoundTripper) (*BitbucketCloud, error) {
 	if strings.TrimSpace(token) == "" {
 		return nil, errors.New("bearer token is empty")
 	}
